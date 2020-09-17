@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/yj/yj",
+    "pages/test/test",
+    "pages/howTo/howTo",
+    "pages/me/me",
+    "pages/use_register/use_register"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#FEFEFE",
+    "navigationBarBackgroundColor": "#FEFEFE",
+    "navigationBarTitleText": "Andy!!",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "cloud": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./icons/index_grey.png",
+        "selectedIconPath": "./icons/index_blue.png",
+        "text": "设备查询"
+      },
+      {
+        "pagePath": "pages/howTo/howTo",
+        "iconPath": "./icons/howto_grey.png",
+        "selectedIconPath": "./icons/howto_blue.png",
+        "text": "使用方法"
+      },
+      {
+        "pagePath": "pages/use_register/use_register",
+        "iconPath": "./icons/index_grey.png",
+        "selectedIconPath": "./icons/index_blue.png",
+        "text": "使用登记"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "./icons/me_grey.png",
+        "selectedIconPath": "./icons/me_blue.png",
+        "text": "我"
+      }
+    ],
+    "backgroundColor": "#f6f6f6",
+    "color": "#969696",
+    "selectedColor": "#F9B552"
+  },
+  "sitemapLocation": "sitemap.json"
+}

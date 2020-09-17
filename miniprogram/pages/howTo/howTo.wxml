@@ -1,0 +1,32 @@
+<view class='window'>
+  <swiper indicator-dots="true" indicator-color='#F9B552' indicator-active-color='#00529D' class='swiper'>
+    <block wx:for="{{img}}">
+      <swiper-item>
+        <image src="{{item}}" class="pic" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='text_window'>
+    <text style='font-size:35rpx; color: #00529D'>{{data.name}}</text>
+    <scroll-view scroll-y style='height:65%;width:95%'>
+      <text style='font-size:30rpx; color: #00529D'>{{data.howto}}</text>
+    </scroll-view>
+    <text class='typeIn' bindtap='typeIn'>────────── Let's discuss! Tap me! Tap me! ──────────</text>
+    <scroll-view scroll-y style='height:25%;width:95%;font-size:30rpx'>
+      <view wx:for-items="{{discussData}}" id="{{item}}" style='width:100%' bindtap= 'deleteTypeIn'>
+        <text style='display: flex;justify-content: flex-start;align-items:flex-start;'>{{item}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='type_window' hidden='{{type_hidden}}'>
+    <view class='type_text'>请输入您的想法：
+      <form class="type" bindsubmit="confirm">
+        <input name="typeData" type="text" focus='{{keyboard}}' value='{{value}}' style='color: #00529D' />
+        <button class='confirm' form-type="submit" size='mini'>
+          确认
+        </button>
+      </form>
+      <view class='cancel' bindtap='type_cancel'>✘</view>
+    </view>
+  </view>
+</view>

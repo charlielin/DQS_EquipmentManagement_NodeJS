@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "贵重仪器设备使用登记",
+  "usingComponents": {
+    "Calendar": "../../Components/calendar/calendar"
+  }
+}

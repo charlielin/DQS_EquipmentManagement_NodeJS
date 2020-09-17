@@ -1,0 +1,50 @@
+.window {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #00529D;
+  width: 100%;
+  height: 100%;
+  background-color: #FEFEFE;
+}
+.side_button{
+  position: absolute;
+  right: 0%;
+  font-size:30rpx;
+  height:70rpx;
+  width: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10rpx;
+  border-top-left-radius: 40rpx;
+  border-bottom-left-radius: 40rpx;
+  color: #F9B552;
+  background-color: #00529D;
+  box-shadow: 0rpx 0rpx 2rpx 1rpx #01417e;
+  opacity: 0.9;
+}
+.mission_list{
+  width:96%;
+  font-size:25rpx;
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5%;
+  margin-left:2%;
+  padding-left: 20rpx;
+  border-left: #F9B552 solid 10px;
+  border-bottom: #F9B552 solid 1px;
+}
+.logo{
+  position: absolute;
+  top: 97%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 20rpx;
+  color: #96979C;
+}

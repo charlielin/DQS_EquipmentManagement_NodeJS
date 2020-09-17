@@ -1,0 +1,8 @@
+<view style='position: absolute;height:100%;width:100%;background-color:#5b5b5b'>
+  <view class='window'>
+  <form bindsubmit="formSubmit">
+    <input class="input" name="name" placeholder="请输入姓名：" placeholder-class="placeholder" />
+    <button form-type="submit" class="button" >确认</button>
+</form>
+  </view>
+</view>

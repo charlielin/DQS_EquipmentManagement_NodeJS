@@ -1,0 +1,133 @@
+.window {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  color: #00529D;
+  width: 100%;
+  height: 100%;
+  background-color: #FEFEFE;
+}
+.equipment_info{
+  height:10%;
+  width:100%;
+  display:flex;
+  padding-left: 20rpx;
+  align-items: center;
+  color: #F9B552;
+  background-color:#00529D;
+}
+.mission_number{
+  height:6%;
+  width:100%;
+  display:flex;
+  padding-left: 20rpx;
+  align-items: center;
+  color: #00529D;
+  background-color:#F9B552;
+}
+.right_circle{
+  width:30rpx;
+  height:30rpx;
+  font-size:25rpx;
+  position:absolute;
+  right:5%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:bolder;
+}
+.equipment_choose{
+  position:absolute;
+  width:100%;
+  height:90%;
+  bottom: 0%;
+  background-color: #FEFEFE;
+}
+.equipment_list{
+  width:96%;
+  font-size:30rpx;
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5%;
+  margin-left:2%;
+  padding-left: 20rpx;
+  border-left: #F9B552 solid 10px;
+  border-bottom: #F9B552 solid 1px;
+}
+.type_area{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.buttons{
+  height: 13.5%;
+  font-size:30rpx;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #F9B552;
+  border-radius: 10rpx;
+}
+.buttons:active{
+  height: 13.5%;
+  font-size:30rpx;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  color:#ff9900;
+  background-color: #00529D;
+  border-radius: 10rpx;
+}
+.time_buttons{
+  height: 18.2%;
+  width: 16%;
+  font-size:30rpx;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #F9B552;
+  border-radius: 10rpx;
+}
+.mission_window{
+  position: absolute;
+  height:30%;
+  width:90%;
+  top:33%;
+  background-color:#FEFEFE;
+  font-size:30rpx;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 10rpx 1rpx #997033;
+  color: #00529D;
+  border: #F9B552 solid 2px;
+}
+.mission_edit{
+  height:15%;
+  font-size:26rpx;
+  margin-top: 2%;
+  padding-left:20rpx;
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: #F9B552 dashed 1px;
+}
+.mission_edit_button{
+  height:15%;
+  width: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#F9B552;
+}

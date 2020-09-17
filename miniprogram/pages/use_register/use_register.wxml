@@ -1,0 +1,40 @@
+<view class='window'>
+	<view class='equipment_info' bindtap="equipment_change">
+		<text>设备编号：{{equipment_info.equipment_number}}\n设备名称：{{equipment_info.equipment_name}}</text>
+		<view class='right_circle'>查询</view>
+	</view>
+	<view class='mission_number' hidden='{{mission_number_hidden}}' bindtap="mission_number_input">
+		<text>报告编号：{{mission_number}}</text>
+		<view class='right_circle' id="重写" bindtap='delete_all'>重写</view>
+	</view>
+	<!-- 报告编号输入窗口 -->
+	<view class='type_area' style='height:36%;width:100%' hidden='{{letters_hidden}}'>
+		<view class='buttons' style='width:49%' wx:for-items="{{prefixs}}" wx:key="{{index}}" id="{{item}}" bindtap='mission_number_type'>{{item}}</view>
+		<view class='buttons' style='width:9.5%' wx:for-items="{{numbers}}" wx:key="{{index}}" id="{{item}}" bindtap='mission_number_type'>{{item}}</view>
+		<view class='buttons' style='width:12%' wx:for-items="{{letters}}" wx:key="{{index}}" id="{{item}}" bindtap='mission_number_type' bindlongpress='delete_all'>{{item}}</view>
+	</view>
+	<view class='type_area' style='height:36%;width:100%' hidden='{{register_time_hidden}}'>
+		<view class='time_buttons' style='background-color:{{item.background_color}}' wx:for-items="{{register_time}}" wx:key="{{index}}" id="{{index}}" bindtap='time_register'>{{item.time}}</view>
+	</view>
+	<view class='calendar' style='height:48%;width:100%' hidden='{{calendar_hidden}}' bindtap='time_choose_appear'>
+		<Calendar id="Calendar" bind:select="select"></Calendar>
+	</view>
+	<!-- 设备选择窗口 -->
+	<view class='equipment_choose' hidden='{{equipment_choose_hidden}}'>
+		<scroll-view scroll-y style='height:100%;width:100%'>
+			<view class='equipment_list' wx:for-items="{{equipment_list}}" wx:key="{{index}}" id="{{index}}" bindtap='equipment_choose'>
+				<text>设备编号：{{item.equipment_number}}\n设备名称：{{item.equipment_name}}</text>
+			</view>
+		</scroll-view>
+	</view>
+	<!-- 任务编辑窗口 -->
+	<view class='mission_window' hidden='{{mission_edit_hidden}}'>
+		<text>以下任务此时段使用该设备（点击删除）</text>
+		<scroll-view scroll-y style='height:73%;width:100%'>
+			<view class='mission_edit' wx:for-items="{{mission_infos}}" wx:key="{{index}}" id="{{index}}" bindtap='mission_edit'>
+				<text>报告编号：{{item.mission_number}}，检测人员：{{item.name}}</text>
+			</view>
+		</scroll-view>
+			<view class='mission_edit_button' wx:for-items="{{mission_edit_button}}" wx:key="{{index}}" id="{{item}}" bindtap='mission_edit_button'>{{item}}</view>
+	</view>
+</view>

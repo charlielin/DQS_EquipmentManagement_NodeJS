@@ -1,0 +1,127 @@
+.window {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #FEFEFE;
+  color: #00529D;
+}
+
+.text_window {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 67%;
+  width: 100%;
+}
+
+.text {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.swiper {
+  height: 30%;
+  width: 100%;
+  border-bottom: #F9B552 solid 1px;
+}
+
+.pic {
+  height: 333rpx;
+  width: 735rpx;
+}
+
+.type_window {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  background-color: #FEFEFE;
+  font-size: 30rpx;
+  flex-wrap: wrap;
+  height: 20%;
+  width: 80%;
+  margin-left: 10%;
+  bottom: 40%;
+  box-shadow: 0rpx 0rpx 10rpx 1rpx #997033;
+  color: #00529D;
+  border-radius: 10rpx;
+}
+
+.type_text {
+  margin-top: 5%;
+}
+
+.type {
+  position: absolute;
+  top: 53%;
+  left: 13%;
+  height: 50rpx;
+  font-size: 28rpx;
+  width: 350rpx;
+  display: flex;
+  justify-content: center;
+  background-color: #F9B552;
+  color: #00529D;
+}
+
+.confirm {
+  height: 55rpx;
+  width: 130rpx;
+  position: absolute; 
+  background-color: #F9B552;
+  bottom:0.1%; 
+  left: 105%; 
+  color: #00529D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm:active {
+  height: 55rpx;
+  width: 130rpx;
+  position: absolute;
+  background-color: #00529D;
+  bottom:0.1%; 
+  left: 105%; 
+  color: #F9B552;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cancel {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  color: #00529D;
+}
+
+.cancel:active {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  color: #F9B552;
+}
+.typeIn{
+  font-size:20rpx;
+  color: #00529D;
+  background-color: #F9B552;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.typeIn:active{
+  font-size:20rpx;
+  color: #F9B552;
+  background-color: #00529D;
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}

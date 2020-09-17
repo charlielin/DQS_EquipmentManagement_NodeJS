@@ -1,0 +1,10 @@
+  <view class='window'>
+  	<scroll-view scroll-y style='height:100%;width:100%'>
+  		<view class='mission_list' wx:for-items="{{equipment_list}}" wx:key="{{index}}" id="{{index}}" bindtap='return_equipment'><text>设备编号：{{item.dq_num}}\n设备名称：{{item.name}}\n借用日期：{{item.time}}</text>
+  		</view>
+  	</scroll-view>
+  	<view class='side_button' bindlongpress='reset' style='bottom:50%' bindtap='refresh_list'>刷新列表</view>
+  	<view class="logo" bindtap="my_story">
+  		Developed by Andy in FQII.
+  	</view>
+  </view>

@@ -1,0 +1,156 @@
+  <view class='window'>
+    <text class='scan'> ↓ ↓ ↓下拉扫码登记或查询 ↓ ↓ ↓</text>
+    <view class="button" bindtap="search">
+      <text class='intro'>输入【设备编号】搜索设备</text>
+      <text class='intro_detail'>如搜索“DQ-12-052”，直接输入“12052”，或其中任意数字模糊搜索。</text>
+    </view>
+    <view class="button" bindtap="searchE">
+      <text class='intro'>输入【设备名称】搜索设备</text>
+      <text class='intro_detail'>如搜索“长延时计时器”，直接输入“计时”，或其中任意文字模糊搜索。</text>
+    </view>
+    <view class="button" bindtap="chooseL">
+      <text class='intro'>选择【试验室】搜索设备</text>
+      <text class='intro_detail'>如查询元件试验室“202”内有哪些设备，直接选择“202”即可查询。</text>
+    </view>
+    <view class="button" bindtap="howTo">
+      <text class='intro'>输入【设备编号】查询使用方法</text>
+      <text class='intro_detail'>如搜索“DQ-20-001 电导率仪”简易使用教程，输入“20001”即可查询。</text>
+    </view>
+  </view>
+<!-- 输入设备编号窗口 -->
+  <view class='type_window' hidden='{{type_hidden}}'>
+    <view class='type_text'>请输入要查询的设备编号：
+      <form class="type" bindsubmit="confirm">
+        <input name="typeData" type="number" focus='{{num_keyboard}}' value='{{type_value}}' />
+        <button class='confirm' form-type="submit" size='mini'>
+          确认
+        </button>
+      </form>
+      <view class='cancel' bindtap='type_cancel'>✘</view>
+    </view>
+  </view>
+  <!-- 输入设备名称窗口 -->
+  <view class='type_window' hidden='{{typeE_hidden}}'>
+    <view class='type_text'>请输入要查询的设备名称：
+      <form class="type" bindsubmit="confirm">
+        <input name="typeData" type="text" focus='{{text_keyboard}}' value='{{type_value}}' />
+        <button class='confirm' form-type="submit" size='mini'>
+          确认
+        </button>
+      </form>
+      <view class='cancel' bindtap='type_cancel'>✘</view>
+    </view>
+  </view>
+  <!-- 选择实验室窗口 -->
+  <view class='labChoose_window' hidden='{{chooseL_hidden}}'>
+    <view style='margin-top: 2%;'>请选择要查询的试验室：</view>
+    <scroll-view scroll-y class='chooseL_items'>
+      <view style='display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap'>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 一楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[0]}}" id="{{item}}" class="chooseL_item" bindtap='labSerch' decode="true">{{item}}
+        </text>
+        </view>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 二楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[1]}}" id="{{item}}" class="chooseL_item" bindtap='labSerch' decode="true">{{item}}
+        </text>
+        </view>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 三楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[2]}}" id="{{item}}" class="chooseL_item" bindtap='labSerch' decode="true">{{item}}
+        </text>
+        </view>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>──────────── 办公室 ────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[3]}}" id="{{item}}" class="chooseL_item" bindtap='labSerch' decode="true">{{item}}
+        </text>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='cancel' bindtap='choose_cancel'>✘</view>
+  </view>
+  <!-- 设备详情查看窗口 -->
+  <view class='bigWindow' hidden='{{dataWindow_hidden}}'>
+    <view class='dataWindow'>
+      <view style='margin-top: 2%; height:3%;font-size:35rpx'>{{num}}的信息：</view>
+      <view style='margin-left:5%;margin-top:5%;display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+        <view style='width: 90%;height:90rpx'>设备名称：{{data.name}}</view>
+        <view style='width: 90%;height:90rpx'>设备位置：{{data.position}}</view>
+        <view style='width: 90%;height:90rpx'>位置细节：{{data.posDetail}}</view>
+        <view style='width: 90%;height:90rpx'>设备型号：{{data.type}}</view>
+        <view style='width: 90%;height:90rpx'>设备量程：{{data.range}}</view>
+        <view style='width: 90%;height:90rpx'>责任人员：{{data.duty}}</view>
+        <view style='width: 90%;height:90rpx'>借用人员：{{data.user}}</view>
+        <view style='width: 90%;height:90rpx'>借用日期：{{data.time}}</view>
+        <view class = 'check_pic' bindtap = 'check_pic' bindlongpress = 'upload_pic'>查看设备照片</view>
+        <view class = 'check_pic' bindtap = 'check_certificate' >查看计量证书</view>
+      </view>
+      <view class='cancel' bindtap='choose_cancel'>✘</view>
+    </view>
+  </view>
+<!-- 根据设备编号搜索结果 -->
+  <view class='bigWindow' hidden='{{moreWindow_hidden}}'>
+    <view class='dataWindow' style='height:90%;'>
+      <view style='margin-top: 2%; height:3%;font-size:35rpx'>编号{{num}}有以下设备，请选择：</view>
+      <scroll-view scroll-y style='height:90%;width:90%;margin-left:5%;margin-top:5%;display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+        <view wx:for-items="{{more}}" id="{{item}}" bindtap='searchAgain' style='margin-top:2%;margin-bottom:2%;font-size:25rpx;'>{{item}}
+        </view>
+      </scroll-view>
+      <view class='cancel' bindtap='choose_cancel'>✘</view>
+    </view>
+  </view>
+<!-- 根据实验室搜索结果 -->
+  <view class='bigWindow' hidden='{{labMore_hidden}}'>
+    <view class='dataWindow' style='height:90%;'>
+      <view style='margin-top: 2%; height:3%;font-size:35rpx'>{{labName}}有以下设备：</view>
+      <scroll-view scroll-y style='height:90%;width:90%;margin-left:5%;margin-top:5%;display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+        <view wx:for-items="{{lab}}" id="{{item}}" bindtap='searchAgain' style='margin-top:2%;margin-bottom:2%;font-size:25rpx;'>{{item}}
+        </view>
+      </scroll-view>
+      <view class='cancel' bindtap='choose_cancel'>✘</view>
+    </view>
+  </view>
+  <view class='bigWindow' hidden='{{eqpMore_hidden}}'>
+    <view class='dataWindow' style='height:90%;'>
+      <view style='margin-top: 2%; height:3%;font-size:35rpx'>{{eqpName}}分别在以下位置：</view>
+      <scroll-view scroll-y style='height:90%;width:90%;margin-left:5%;margin-top:5%;display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+        <view wx:for-items="{{eqp}}" id="{{item}}" bindtap='searchAgain' style='margin-top:2%;margin-bottom:2%;font-size:25rpx;'>{{item}}
+        </view>
+      </scroll-view>
+      <view class='cancel' bindtap='choose_cancel'>✘</view>
+    </view>
+  </view>
+  <!-- 放置实验室登记窗口 -->
+  <view class='labChoose_window' hidden='{{scanUpdateWindow_hidden}}'>
+    <view style='margin-top: 2%;'>请选择放置{{scanEqp}}的试验室：</view>
+    <scroll-view scroll-y class='chooseL_items'>
+      <view style='display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap'>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 一楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[0]}}" id="{{item}}" class="chooseL_item" bindtap='scanUpdate' decode="true">{{item}}
+        </text>
+        </view>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 二楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[1]}}" id="{{item}}" class="chooseL_item" bindtap='scanUpdate' decode="true">{{item}}
+        </text>
+        </view>
+        <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>───────────── 三楼 ─────────────</text>
+        <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+          <text wx:for-items="{{chooseL[2]}}" id="{{item}}" class="chooseL_item" bindtap='scanUpdate' decode="true">{{item}}
+        </text>
+        </view>
+      </view>
+      <text style='font-size:20rpx; color:#F9B552;margin-top:2%'>──────────── 办公室 ────────────</text>
+      <view style='display:flex;justify-content:flex-start;align-items:flex-start;flex-wrap:wrap'>
+        <text wx:for-items="{{chooseL[3]}}" id="{{item}}" class="chooseL_item" bindtap='scanUpdate' decode="true">{{item}}
+        </text>
+      </view>
+    </scroll-view>
+    <view class='scanHowTo'>
+      <view class='scanHowToItem' bindtap='scanInformation'>查看设备信息</view>
+      <view class='scanHowToItem' bindtap='scanHowTo'>查看使用方法</view>
+    </view>
+    <view class='cancel' bindtap='choose_cancel'>✘</view>
+  </view>
